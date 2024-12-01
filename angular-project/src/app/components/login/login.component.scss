@@ -1,0 +1,59 @@
+body{
+  background: white;
+
+}
+.img-style
+{
+  width: 300px;
+  transform: scaleX(-1);
+}
+.box-area
+{
+  width: 930px;
+}
+.columnStyle
+{
+  background: #ffefe5;
+  // padding: 0;
+}
+.btn-style
+{
+  background: #002b5b;
+  color: white;
+}
+.logoStyle
+{
+  width: 20px;
+
+}
+.right-box
+{
+  padding: 40px 30px 40px 40px;
+}
+
+::placeholder
+{
+  font-size: 16px;
+}
+a {
+  pointer-events: auto;
+  color: blue;
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 768px)
+{
+  .box-area
+  {
+    margin: 0 10px;
+  }
+  .left-box
+  {
+    height: 100px;
+    overflow: hidden;
+  }
+  .right-box
+  {
+    padding: 20px;
+  }
+}
