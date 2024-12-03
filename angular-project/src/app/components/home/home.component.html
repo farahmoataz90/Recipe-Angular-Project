@@ -1,1 +1,111 @@
-<p>home works!</p>
+<nav class="navbar navbar-expand-xl">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="assets/images/logo.png" alt="Bootstrap" >
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav mx-auto">
+        <a class="nav-link textcolor  active fs-5" aria-current="page" href="#">Home</a>
+        <a class="nav-link textcolor fs-5" href="#">Explore</a>
+        <a class="nav-link textcolor fs-5" href="#">Meal Planner</a>
+        <a class="nav-link textcolor fs-5">Shopping List</a>
+      </div>
+      <div class="navbar-nav navbar-right-wrap ms-auto d-none d-lg-flex">
+        <button type="button" class="icon-button b1 me-1">
+          <i class="bi bi-plus-circle"></i>
+        </button>
+        <button type="button" class="icon-button b2 me-1">
+          <i class="bi bi-search"></i>
+        </button>
+        <button type="button" class="icon-button b2 me-1">
+          <i class="bi bi-bell-fill"></i>
+        </button>
+        <button type="button" class="icon-button b2">
+          <i class="bi bi-person-fill"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- heroooo begin -->
+<div>
+  <div class="container">
+    <div class="align-items-center g-0 row">
+      <div class="col-xl-5 col-lg-6 col-md-12">
+        <div class="py-5 py-lg-0 m-5">
+          <h2 class="display-8 fw-bold textcolor">
+            Welcome back, Maya!
+          </h2>
+          <p class="text-secondary mb-4">
+            What would you like to eat today?
+          </p>
+          <a class="btn btncolor px-4">Post Recipe</a>
+          <a class="btn btncolor1 ms-3 px-4">Plan Meal</a>
+        </div>
+      </div>
+      <div class="text-lg-end text-center col-xl-7 col-lg-6 col-md-12">
+        <img src="assets/images/hero.png" alt="hero" class="image-fluid">
+      </div>
+    </div>
+  </div>
+</div>
+<!-- heroooo end -->
+
+
+
+<div class="pt-lg-5 pb-lg-3 pt-5 pb-5">
+  <div class="container">
+    <div class="mb-4 row">
+      <div class="col">
+        <h2 class="mb-0 mx-2 mt-5 fw-bold textcolor">
+          Recipe Feed
+        </h2>
+      </div>
+    </div>
+    <div class="row">
+      <!-- <app-card [imageSrc]="cards.imageSrc"
+      [title]="cards.title"
+      [time]="cards.time"
+      [rating]="cards.rating" class="col-xl-3 col-lg-3 col-md-6 col-sm-12" ></app-card>
+      <app-card class="col-xl-3 col-lg-3 col-md-6 col-sm-12"></app-card>
+      <app-card class="col-xl-3 col-lg-3 col-md-6 col-sm-12"></app-card>
+      <app-card class="col-xl-3 col-lg-3 col-md-6 col-sm-12"></app-card>
+      <app-card class="col-xl-3 col-lg-3 col-md-6 col-sm-12"></app-card>
+      <app-card class="col-xl-3 col-lg-3 col-md-6 col-sm-12"></app-card>
+      <app-card class="col-xl-3 col-lg-3 col-md-6 col-sm-12"></app-card>
+      <app-card class="col-xl-3 col-lg-3 col-md-6 col-sm-12"></app-card> -->
+      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12" *ngFor="let card of cards">
+        <app-card
+          [imageSrc]="card.imageSrc"
+          [title]="card.title"
+          [time]="card.time"
+          [rating]="card.rating">
+        </app-card>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="footer">
+  <div class="container">
+    <div class="align-items-center g-0 border-top py-2 row">
+      <div class="text-center text-md-start col-md-6 col-sm-12">
+        <span>© 2025 BitePlan. All Rights Reserved.</span>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <nav class="nav nav-footer justify-content-center justify-content-md-end">
+          <a class="nav-link active ps-0" href="#">Privacy</a>
+          <a class="nav-link" href="#">Terms</a>
+          <a class="nav-link" href="#">Support</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>

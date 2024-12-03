@@ -1,0 +1,54 @@
+<div class="">
+  <div class="card card-hover mb-sm-3 mb-md-3">
+    <img [src]="imageSrc" class=" card-img card-img-top rounded-top-md">
+    <div class="card-body">
+      <div class="align-items-center row">
+        <div class="col">
+         <h4 class="mb-2 text-truncate-line-2 textcolor">{{ title }}</h4>
+        </div>
+        <div class="col-auto col">
+          <a class="cursor-pointer iconcolor px-1 fw-bold">
+            <i class="bi bi-bookmark fw-bold"></i>
+          </a>
+        </div>
+      </div>
+      <p class="card-text"></p>
+      <ul class="md-3 list-inline">
+        <li class="list-inline-item">
+          <i class="bi bi-clock-fill iconcolor me-1"></i>
+          {{ time }}
+        </li>
+        <li class="list-inline-item">
+          <i class="bi bi-star-fill iconcolor me-1"></i>
+          {{ rating }}
+        </li>
+      </ul>
+      <div class="card-footer">
+      <!-- <ul class="md-3 list-inline">
+        <li class="list-inline-item">
+          <a href="" class="btn btncolor fw-300 px-5">view details</a>
+        </li>
+        <li class="list-inline-item">
+          <i class="bi bi-heart iconcolor fs-4 ms-4"></i>
+        </li>
+        <li class="list-inline-item">
+          <i class="bi bi-chat-fill iconcolor ms-2 fs-4"></i>
+        </li>
+      </ul> -->
+      <div class="align-items-center g-0 row handleit">
+        <div class="col">
+          <a href="" class="btn btncolor fw-300 px-4">view details</a>
+        </div>
+        <div class="col-auto col">
+          <i class="bi bi-heart iconcolor fs-4 ms-4"></i>
+        </div>
+        <div class="col-auto col">
+          <i class="bi bi-chat-fill iconcolor ms-3 fs-4"></i>
+
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+</div>
