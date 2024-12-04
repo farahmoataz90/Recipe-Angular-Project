@@ -12,7 +12,7 @@
             <p>join us by creating account</p>
             <h2>Hi There!</h2>
         </div>
-        <form [formGroup]="registerForm">
+        <form [formGroup]="registerForm" (ngSubmit)="submitDetails()">
         <div class="input-group mb-3">
           <input type="email" formControlName="email" class="form-control form-control-lg bg-light fs-6" placeholder="Enter your Email">
           <div class="w-100">
@@ -47,7 +47,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <button class="btn btn-lg w-100 fs-6 btn-style" [disabled]="registerForm.invalid">Sign Up</button>
+          <button class="btn btn-lg w-100 fs-6 btn-style" [disabled]="registerForm.invalid" type="submit">Sign Up</button>
         </div>
       </form>
         <div class="row">
