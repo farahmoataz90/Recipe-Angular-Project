@@ -9,13 +9,13 @@
 <div class="card mb-3 mt-8" >
   <div class="row ">
     <div class="col-md-6">
-      <img src="assets/images/food7.jpg" class="img-fluid rounded-start w-100 imgstyle" alt="...">
+      <img [src]="image" class="img-fluid rounded-start w-100 imgstyle" alt="...">
     </div>
     <div class="col-md-6">
       <div class="card-body">
         <div class="card-title ps-lg-10 mt-6 mt-md-0">
             <div class="row">
-              <h1 class="mb-1 fw-bold h1style col-7">Wara2 3enab</h1>
+              <h1 class="mb-1 fw-bold h1style col-7">{{ title }}</h1>
 
               <div class="ms-auto d-lg-flex col-5">
                 <button type="button" class="icon-button b me-1">
@@ -35,11 +35,11 @@
         <ul class="md-3 list-inline">
           <li class="list-inline-item">
             <i class="bi bi-clock-fill iconcolor me-1"></i>
-            1 hour
+            {{ time }}
           </li>
           <li class="list-inline-item">
             <i class="bi bi-star-fill iconcolor me-1"></i>
-            5.0
+            {{ rating }}
           </li>
         </ul>
         <h5 class="textcolor fw-bold">Ingredients:</h5>

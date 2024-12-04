@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ReviewComponent } from '../review/review.component';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-details',
@@ -11,7 +13,7 @@ import { ReviewComponent } from '../review/review.component';
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss'
 })
-export class DetailsComponent {
+export class DetailsComponent implements OnInit{
   reviews = [
     {
       imageSrc: 'assets/images/avatar1.jpg',
@@ -38,6 +40,22 @@ export class DetailsComponent {
       comments: 'Great product & package. Delivery can be expedited.'
     }
 
-  ]
+  ];
 
-}
+
+  image!: string;
+  title!: string;
+  rating!: string;
+  time!: string;
+
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      this.image = params['image'];
+      this.title = params['title'];
+      this.rating = params['rating'];
+      this.time = params['time'];
+    });
+
+}}

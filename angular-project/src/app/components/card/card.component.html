@@ -26,7 +26,14 @@
       <div class="card-footer">
       <div class="align-items-center g-0 row handleit">
         <div class="col">
-          <a href="" class="btn btncolor fw-300 px-4">view details</a>
+          <a
+           href="/details"
+           routerLink='/details'
+           [queryParams]="{ image: imageSrc, title: title, rating: rating, time: time }"
+           class="btn btncolor fw-300 px-4"
+          >
+           view details
+          </a>
         </div>
         <div class="col-auto col">
           <i class="bi bi-heart iconcolor fs-4 ms-4"></i>
