@@ -1,0 +1,78 @@
+.imgstyle
+{
+  // background-position: 99.6283% 30.6931%;
+  border-radius: 0.5rem;
+}
+.card
+{
+  border: none!important;
+}
+.linkstyle
+{
+  text-decoration: none;
+  color: #B0B0B0;
+}
+.h1style
+{
+  color: #002B5B;
+}
+.active
+{
+  color: #F17046!important;
+  // font-weight: bold;
+}
+.icon-button{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+
+}
+.b{
+  background-color: rgba(255, 239, 229, 1);
+  color: rgba(255, 145, 77, 1);
+
+}
+.textcolor
+{
+  color: #002B5B;
+}
+.btncolor
+{
+  background-color: #002B5B;
+  color: white;
+}
+.btncolor1
+{
+  color: #002B5B;
+  background-color: white;
+  border-color: #002B5B;
+}
+.iconcolor
+{
+  color: #FF914D;
+}
+.cardcolor
+{
+  color: rgba(51, 51, 51, 1)!important;
+}
+.btnrev{
+  border-color: #858585;
+}
+// .rating-form {
+//   display: inline-flex;
+//   position: relative;
+// }
+// .rating-input {
+//   cursor: pointer;
+//   height: 100%;
+//   opacity: 0;
+//   position: absolute;
+//   width: 100%;
+// }
+

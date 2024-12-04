@@ -1,0 +1,43 @@
+.active
+{
+  color: #F17046!important;
+  // font-weight: bold;
+}
+.icon-button{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+
+}
+.b1
+{
+  color: white;
+  background-color: #002B5B;
+
+}
+.b2
+{
+  color: white;
+  background-color: #FF914D;
+}
+.textcolor
+{
+  color: #002B5B;
+}
+.btncolor
+{
+  background-color: #002B5B;
+  color: white;
+}
+.btncolor1
+{
+  color: #002B5B;
+  background-color: white;
+  border-color: #002B5B;
+}
