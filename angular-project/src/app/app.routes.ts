@@ -3,6 +3,8 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { HomeComponent } from './components/home/home.component';
 import { DetailsComponent } from './components/details/details.component';
+import { AddreviewComponent } from './components/addreview/addreview.component';
+import { PostrecipeComponent } from './components/postrecipe/postrecipe.component';
 
 export const routes: Routes = [
 
@@ -21,6 +23,14 @@ export const routes: Routes = [
   {
     path: "details",
     component: DetailsComponent
+  },
+  {
+    path: 'addreview',
+    component: AddreviewComponent
+  },
+  {
+    path: "postrecipe",
+    component: PostrecipeComponent
   },
   {
     path: '' , redirectTo : 'home' , pathMatch: 'full'

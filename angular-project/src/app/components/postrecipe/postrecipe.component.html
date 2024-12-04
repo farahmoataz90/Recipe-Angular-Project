@@ -1,0 +1,65 @@
+<app-navbar></app-navbar>
+
+<br><br>
+<!-- hg fd-->
+ <div class="container">
+<div class="card mb-3 mt-8">
+  <div class="row">
+    <div class="col-md-6">
+      <!-- <img src="..." class="img-fluid rounded-start" alt="..."> -->
+      <div class="container">
+        <input
+          type="file"
+          id="file"
+          accept="image/*"
+          hidden
+          (change)="onFileChange($event)"
+          #fileInput
+        />
+
+        <div class="img-area" [class.active]="imgAreaActive" [attr.data-img]="selectedImageName || ''">
+          <ng-container *ngIf="imageUrl; else defaultContent">
+            <img [src]="imageUrl" [alt]="selectedImageName" />
+          </ng-container>
+          <ng-template #defaultContent>
+            <i class="bi bi-cloud-arrow-up-fill icon"></i>
+            <h3>Upload Image</h3>
+            <p>Image size must be less than <span>2MB</span></p>
+          </ng-template>
+        </div>
+
+        <button class="select-image" (click)="onSelectImage(fileInput)">Select Image</button>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card-body">
+        <!-- here -->
+        <div class="card-title ps-lg-10 mt-6 mt-md-0">
+          <div class="row">
+            <h1 class="mb-1 fw-bold h1style col-7">Post Your Recipe</h1>
+            <!-- <a href="" class="mb-2 d-block linkstyle fs-5">Tell us your opinion</a> -->
+            <label for="name" class="fw-bold textcolor mb-2">Recipe Name:</label>
+            <input placeholder="Enter your recipe name" class="form-control mb-3" type="text" name="name">
+            <label for="review" class="fw-bold textcolor mb-2">Ingredients:</label>
+            <input placeholder="Enter your Ingredients" class="form-control mb-3" type="text" name="review">
+            <label for="review" class="fw-bold textcolor mb-2">Cooking Steps:</label>
+            <input placeholder="Enter your Cooking Steps" class="form-control mb-3" type="text" name="review">
+            <label for="review" class="fw-bold textcolor mb-2">Nutritional Information:</label>
+            <input placeholder="Enter your Nutritional Information" class="form-control mb-3" type="text" name="review">
+            <div class="d-flex justify-content-end">
+              <a role="button" tabindex="0" href="#" class="btn btncolor px-4">post Recipe</a>
+            </div>
+          </div>
+        </div>
+        <!-- end here -->
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+ <!-- dshfhds -->
+
+
+ <br><br>
+
+ <app-footer></app-footer>
