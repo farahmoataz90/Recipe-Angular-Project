@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { DetailsComponent } from './components/details/details.component';
 import { AddreviewComponent } from './components/addreview/addreview.component';
 import { PostrecipeComponent } from './components/postrecipe/postrecipe.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 export const routes: Routes = [
 
@@ -31,6 +32,10 @@ export const routes: Routes = [
   {
     path: "postrecipe",
     component: PostrecipeComponent
+  },
+  {
+    path: "profile",
+    component: ProfileComponent
   },
   {
     path: '' , redirectTo : 'home' , pathMatch: 'full'
