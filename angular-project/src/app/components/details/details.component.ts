@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ReviewComponent } from '../review/review.component';
 import { ActivatedRoute } from '@angular/router';
+import { ShoppingService } from '../../services/shared.service';
 
 
 @Component({
@@ -43,6 +44,10 @@ export class DetailsComponent implements OnInit{
   ];
 
 
+  // @Input() ing: string[] = [];
+  @Input() ing!: string[];
+
+
   image!: string;
   title!: string;
   rating!: string;
@@ -54,7 +59,17 @@ export class DetailsComponent implements OnInit{
   nutrition!: string[];
 
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute , private shoppingService: ShoppingService) {}
+
+
+  addToShoppingList(ing: string): void {
+    console.log('Adding ingredient to shopping list:', ing);
+    this.shoppingService.addToShoppingList(ing);
+  }
+
+
+
+
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -66,7 +81,6 @@ export class DetailsComponent implements OnInit{
       this.cookingSteps = params['cookingSteps'];
       this.nutrition = params['nutrition'];
 
-      // this.nutrition = params['nutrition'] ? JSON.parse(params['nutrition']) : {};
 
 
 

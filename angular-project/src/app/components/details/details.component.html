@@ -44,8 +44,10 @@
         </ul>
         <h5 class="textcolor fw-bold">Ingredients:</h5>
         <ul class="card-text cardcolor ms-3">
-
-          <li *ngFor="let ingredient of ingredients">{{ ingredient }}</li>
+          <li *ngFor="let ingredient of ingredients">
+              <button (click)="addToShoppingList(ingredient)"><i class="bi bi-plus-circle b1"></i></button>
+            {{ ingredient }}
+          </li>
         </ul>
         <h5 class="textcolor fw-bold">Cooking Steps:</h5>
 
