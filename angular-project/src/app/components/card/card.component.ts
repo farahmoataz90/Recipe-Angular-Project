@@ -12,6 +12,12 @@ export class CardComponent {
   @Input() imageSrc!: string; // Input for the image URL
   @Input() title!: string;    // Input for the title
   @Input() time!: string;     // Input for the time
-  @Input() rating!: number;   // Input for the rating
+  @Input() rating!: number;
+     // Input for the rating
+
+
+     @Input() ingredients!: string[];
+     @Input() cookingSteps!: string[];
+     @Input() nutrition!: string[];
 
 }

@@ -48,6 +48,12 @@ export class DetailsComponent implements OnInit{
   rating!: string;
   time!: string;
 
+
+  ingredients!: string[];
+  cookingSteps!: string[];
+  nutrition!: string[];
+
+
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -56,6 +62,16 @@ export class DetailsComponent implements OnInit{
       this.title = params['title'];
       this.rating = params['rating'];
       this.time = params['time'];
+      this.ingredients = params['ingredients'];
+      this.cookingSteps = params['cookingSteps'];
+      this.nutrition = params['nutrition'];
+
+      // this.nutrition = params['nutrition'] ? JSON.parse(params['nutrition']) : {};
+
+
+
+
+
     });
 
 }}

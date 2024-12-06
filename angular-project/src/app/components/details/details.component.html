@@ -44,30 +44,30 @@
         </ul>
         <h5 class="textcolor fw-bold">Ingredients:</h5>
         <ul class="card-text cardcolor ms-3">
-          <li><span class="fw-bold">. Stuffing: </span>Rice, onion, olive oil, tomato paste, pine nuts (optional), parsley, dill (optional), allspice, cinnamon, salt, pepper, lemon juice, pomegranate molasses (optional).</li>
-          <li><span class="fw-bold">. Grape Leaves: </span>Jar of grape leaves (rinsed and drained).</li>
-          <li><span class="fw-bold">. Cooking: </span>Water or vegetable broth, olive oil, extra lemon juice (optional).</li>
+
+          <li *ngFor="let ingredient of ingredients">{{ ingredient }}</li>
         </ul>
         <h5 class="textcolor fw-bold">Cooking Steps:</h5>
-        <p class="card-text ms-3">
-          1. Prepare the stuffing: Sauté onion in olive oil, add rice, spices, and other ingredients. Simmer until rice is slightly undercooked, then let cool.
-          <br>
-          2. Prepare grape leaves: Rinse and trim grape leaves.
-          <br>
-          3. Stuff the leaves: Place rice mixture on each leaf, fold, and roll tightly.
-          <br>
-          4. Cook: Stack rolls in a pot, add water/broth, and cook for 45-60 minutes until tender.
-          <br>
-          5. Serve: Garnish with lemon juice or pomegranate molasses.
-        </p>
+
+        <ol>
+          <li *ngFor="let step of cookingSteps">{{ step }}</li>
+        </ol>
         <h5 class="textcolor fw-bold">Nutritional Information:</h5>
-        <ul class="card-text ms-3">
-          <li>Calories: 200 kcal</li>
-          <li>Carbs: 42g</li>
-          <li>Fat: 7g</li>
-          <li>Protein: 4g</li>
-          <li>Fiber: 3g</li>
+        <ul class="card-text cardcolor ms-3">
+          <li *ngFor="let value of nutrition; let i = index">
+            <ng-container [ngSwitch]="i">
+              <span *ngSwitchCase="0">Calories: {{ value }}</span>
+              <span *ngSwitchCase="1">Protein: {{ value }}</span>
+              <span *ngSwitchCase="2">Fat: {{ value }}</span>
+              <span *ngSwitchCase="3">Carbs: {{ value }}</span>
+              <span *ngSwitchDefault>Other: {{ value }}</span>
+            </ng-container>
+          </li>
         </ul>
+
+
+
+
         <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
       </div>
     </div>
