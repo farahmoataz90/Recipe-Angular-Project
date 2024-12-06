@@ -9,6 +9,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
+import { ShoppinglistComponent } from './components/shoppinglist/shoppinglist.component';
 
 export const routes: Routes = [
 
@@ -35,6 +36,11 @@ export const routes: Routes = [
   {
     path: "postrecipe",
     component: PostrecipeComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "shoppinglist",
+    component: ShoppinglistComponent,
     canActivate: [AuthGuard]
   },
   {
