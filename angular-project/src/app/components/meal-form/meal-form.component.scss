@@ -1,0 +1,89 @@
+.b1
+{
+ color: white;
+background-color: #FF914D!important;
+border:none;
+}
+b2{
+color: white!important;
+border:none!important;
+background-color: grey!important;
+
+}
+.meal-form {
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.recipe-selection {
+  margin-bottom: 2rem;
+}
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.recipe-card {
+  padding: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.recipe-card:hover {
+  border-color: #007bff;
+  transform: translateY(-2px);
+}
+.recipe-card.selected {
+  border-color: #28a745;
+  background-color: #f8fff8;
+}
+.recipe-card h5 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+.recipe-card p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #666;
+}
+.custom-recipe {
+  border-style: dashed;
+}
+.form-group {
+  margin-bottom: 1rem;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+.form-control {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+textarea.form-control {
+  min-height: 100px;
+}
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+button {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button[type="submit"] {
+  background-color: #28a745;
+}
+button[type="button"] {
+  background-color: #6c757d;
+}

@@ -1,0 +1,9 @@
+<div class="dialog-overlay" (click)="onOverlayClick($event)">
+  <div class="dialog-content">
+    <app-meal-form
+      [mealType]="mealType"
+      (save)="onSave($event)"
+      (cancel)="onClose()"
+    ></app-meal-form>
+  </div>
+</div>

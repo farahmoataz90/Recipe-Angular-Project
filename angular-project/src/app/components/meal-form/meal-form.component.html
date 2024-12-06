@@ -1,0 +1,80 @@
+<div class="meal-form">
+  <h3>Add {{ mealType | titlecase }}</h3>
+
+  <div class="recipe-selection">
+    <h4>Choose a Recipe</h4>
+    <div class="recipe-grid">
+      @for (recipe of availableRecipes; track recipe.id) {
+        <div
+          class="recipe-card"
+          [class.selected]="selectedRecipe?.id === recipe.id"
+          (click)="selectRecipe(recipe)"
+        >
+          <h5>{{ recipe.name }}</h5>
+          <p>{{ recipe.calories }} calories</p>
+        </div>
+      }
+      <div
+        class="recipe-card custom-recipe"
+        [class.selected]="isCustomRecipe"
+        (click)="createCustomRecipe()"
+      >
+        <h5>Create Custom Recipe</h5>
+        <p>Add your own recipe</p>
+      </div>
+    </div>
+  </div>
+
+  @if (isCustomRecipe || selectedRecipe) {
+    <form (ngSubmit)="onSubmit()" #mealForm="ngForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          [(ngModel)]="meal.name"
+          required
+          class="form-control"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea
+          id="description"
+          name="description"
+          [(ngModel)]="meal.description"
+          class="form-control"
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="calories">Calories:</label>
+        <input
+          type="number"
+          id="calories"
+          name="calories"
+          [(ngModel)]="meal.calories"
+          class="form-control"
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="ingredients">Ingredients (one per line):</label>
+        <textarea
+          id="ingredients"
+          name="ingredients"
+          [(ngModel)]="ingredientsText"
+          (ngModelChange)="updateIngredients($event)"
+          class="form-control"
+        ></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" (click)="onCancel()" class="b2">Cancel</button>
+        <button type="submit" [disabled]="!mealForm.form.valid" class="b1">Save</button>
+      </div>
+    </form>
+  }
+</div>

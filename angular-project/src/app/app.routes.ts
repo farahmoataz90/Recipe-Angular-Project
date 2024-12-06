@@ -10,6 +10,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
 import { ShoppinglistComponent } from './components/shoppinglist/shoppinglist.component';
+import { MealplanningComponent } from './components/mealplanning/mealplanning.component';
+// import { MealplannerComponent } from './components/mealplanner/mealplanner.component';
 
 export const routes: Routes = [
 
@@ -37,6 +39,10 @@ export const routes: Routes = [
     path: "postrecipe",
     component: PostrecipeComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: "mealplanning",
+    component: MealplanningComponent
   },
   {
     path: "shoppinglist",

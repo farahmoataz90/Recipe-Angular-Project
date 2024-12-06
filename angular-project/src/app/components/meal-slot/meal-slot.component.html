@@ -1,0 +1,30 @@
+<div class="meal-slot">
+  <h4>{{ mealType | titlecase }}</h4>
+  @if (meal) {
+    <div class="meal-info">
+      <h5>{{ meal.name }}</h5>
+      <p>{{ meal.description }}</p>
+      @if (meal.calories) {
+        <span>{{ meal.calories }} calories</span>
+      }
+      <div class="ingredients">
+        <h6>Ingredients:</h6>
+        <ul>
+          @for (ingredient of meal.ingredients; track ingredient) {
+            <li>{{ ingredient }}</li>
+          }
+        </ul>
+      </div>
+    </div>
+  } @else {
+    <button (click)="showDialog = true">Add {{ mealType }}</button>
+  }
+
+  @if (showDialog) {
+    <app-meal-dialog
+      [mealType]="mealType"
+      (save)="onMealSave($event)"
+      (close)="showDialog = false"
+    ></app-meal-dialog>
+  }
+</div>
