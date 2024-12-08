@@ -1,28 +1,38 @@
 <div class="daily-plan">
-  <h3>{{ dayDate | date:'EEEE, MMM d' }}</h3>
+  <h3 class="textcolor">{{ dayDate | date:'EEEE, MMM d' }}</h3>
+
   <app-meal-slot
     [meal]="plan.breakfast"
     [mealType]="'breakfast'"
     (selectMeal)="onMealSelect('breakfast', $event)"
-  ></app-meal-slot>
+   class="textcolor">
+  </app-meal-slot>
+
   <app-meal-slot
     [meal]="plan.lunch"
     [mealType]="'lunch'"
     (selectMeal)="onMealSelect('lunch', $event)"
-  ></app-meal-slot>
+    class="textcolor" >
+  </app-meal-slot>
+
   <app-meal-slot
     [meal]="plan.dinner"
     [mealType]="'dinner'"
     (selectMeal)="onMealSelect('dinner', $event)"
+    class="textcolor"
   ></app-meal-slot>
+
+
   <div class="snacks">
-    <h4>Snacks</h4>
+    <h4 class="textcolor">Snacks</h4>
     <app-meal-slot
       *ngFor="let snack of plan.snacks"
       [meal]="snack"
       [mealType]="'snack'"
       (selectMeal)="onAddSnack($event)"
+      class="textcolor"
     ></app-meal-slot>
+
     <button (click)="onAddSnack()">Add Snack</button>
   </div>
 </div>

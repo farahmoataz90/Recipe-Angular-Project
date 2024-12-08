@@ -1,17 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { CardComponent } from '../card/card.component';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule,CardComponent,NavbarComponent,FooterComponent],
+  imports: [CommonModule,CardComponent,NavbarComponent,FooterComponent,FormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+
+
+
   cards = [
     {
       imageSrc: 'assets/images/food1.jpg',
@@ -131,4 +137,35 @@ export class HomeComponent {
       ,
     },
   ];
+
+  filteredCards = [...this.cards];
+  searchQuery: string = '';
+
+
+  // ngOnInit(): void {
+  //   // Ensure all cards are displayed when the component loads
+  //   this.filteredCards = [...this.cards];
+  //   console.log('Initial Cards:', this.filteredCards);
+
+  // }
+
+
+//   filterRecipes(): void {
+//     const query = this.searchQuery.trim().toLowerCase();
+//     this.filteredCards = this.cards.filter(card =>
+//       card.title.toLowerCase().includes(query)
+//     );
+//     console.log('Search Query:', this.searchQuery);
+// console.log('Filtered Cards:', this.filteredCards);
+
+//   }
+
+onSearchInputChange() {
+  this.filteredCards = this.cards.filter((card) =>
+    card.title.toLowerCase().includes(this.searchQuery.toLowerCase())
+  );
+  console.log('Search Query:', this.searchQuery);
+  console.log('Filtered Cards:', this.filteredCards);
+}
+
 }

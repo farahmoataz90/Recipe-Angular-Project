@@ -20,7 +20,7 @@ export class DailyPlanComponent {
 
   constructor(private mealPlanService: MealPlanService) {}
 
-  onMealSelect(type: 'breakfast' | 'lunch' | 'dinner', meal: Meal) {
+  onMealSelect(type: 'breakfast' | 'lunch' | 'dinner' , meal: Meal) {
     this.mealPlanService.updateMeal(this.dayIndex, type, meal);
   }
 
