@@ -141,14 +141,19 @@ export class ProfileComponent implements OnInit{
   constructor(private postservice : PostService){}
 
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
     const email = sessionStorage.getItem('email');
-    if (email) {
-      this.userName = email.split('@')[0]; // Extract name before '@'
-    }
+    if (email)
+     {
+        this.userName = email.split('@')[0]; // Extract name before '@'
+     }
 
-    this.cards = this.postservice.getPost();
-    console.log('Cards:', this.cards);
+   
+
+      // Get all posts from the PostService
+      this.cards = this.postservice.getPost();
+      console.log('Cards:', this.cards);
   }
 
 

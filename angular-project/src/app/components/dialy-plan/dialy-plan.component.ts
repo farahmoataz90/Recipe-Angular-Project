@@ -20,13 +20,13 @@ export class DailyPlanComponent {
 
   constructor(private mealPlanService: MealPlanService) {}
 
-  onMealSelect(type: 'breakfast' | 'lunch' | 'dinner' , meal: Meal) {
+  onMealSelect(type: 'breakfast' | 'lunch' | 'dinner' | 'snacks', meal: Meal) {
     this.mealPlanService.updateMeal(this.dayIndex, type, meal);
   }
 
-  onAddSnack(meal?: Meal) {
-    if (meal) {
-      this.mealPlanService.addSnack(this.dayIndex, meal);
-    }
-  }
+  // onAddSnack(meal?: Meal) {
+  //   if (meal) {
+  //     this.mealPlanService.addSnack(this.dayIndex, meal);
+  //   }
+  // }
 }

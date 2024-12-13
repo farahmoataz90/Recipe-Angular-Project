@@ -44,8 +44,10 @@
         </ul>
         <h5 class="textcolor fw-bold">Ingredients:</h5>
         <ul class="card-text cardcolor ms-3">
-          <li *ngFor="let ingredient of ingredients">
-              <button (click)="addToShoppingList(ingredient)"><i class="bi bi-plus-circle b1"></i></button>
+          <li *ngFor="let ingredient of ingredients" >
+              <button (click)="addToShoppingList(ingredient)" class="border-0 btnstyle">
+                <i class="bi bi-plus-circle-fill active"></i>
+              </button>
             {{ ingredient }}
           </li>
         </ul>
@@ -90,7 +92,7 @@
             <div class="col-md-4">
               <div class="me-lg-12 mb-6 mb-md-0">
                 <div class="mb-5">
-                  <h4 class="mb-3 textcolor">
+                  <h4 class="mb-3 textcolor fw-bold">
                     Customer Review
                   </h4>
                   <span class="d-flex align-items-center">
@@ -108,8 +110,8 @@
                   </span>
                 </div>
                 <div class="d-grid">
-                  <h4 class="textcolor">Review this product</h4>
-                  <p class="mb-0">Share your thoughts with other customers.</p>
+                  <h4 class="textcolor fw-bold">Review this Recipe</h4>
+                  <p class="mb-0">Share your thoughts with other Users.</p>
                   <a role="button" tabindex="0" href="/addreview" router-link="/addreview" class="mt-4 text-muted btn btnrev">Write the Review</a>
                 </div>
               </div>
@@ -117,7 +119,7 @@
             <div class="col-md-8">
               <div class="mb-10">
                 <div class="d-flex justify-content-between align-items-center mb-8"><div>
-                <h4 class="textcolor">Reviews</h4>
+                <h4 class="textcolor fw-bold">Reviews</h4>
               </div>
               <div>
                 <select class="form-select">

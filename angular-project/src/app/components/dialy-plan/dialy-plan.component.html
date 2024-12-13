@@ -23,7 +23,14 @@
   ></app-meal-slot>
 
 
-  <div class="snacks">
+  <!-- <app-meal-slot
+  [meal]="plan.snacks"
+  [mealType]="'snacks'"
+  (selectMeal)="onMealSelect('snacks', $event)"
+  class="textcolor"
+></app-meal-slot> -->
+
+  <!-- <div class="snacks">
     <h4 class="textcolor">Snacks</h4>
     <app-meal-slot
       *ngFor="let snack of plan.snacks"
@@ -34,5 +41,5 @@
     ></app-meal-slot>
 
     <button (click)="onAddSnack()">Add Snack</button>
-  </div>
+  </div> -->
 </div>

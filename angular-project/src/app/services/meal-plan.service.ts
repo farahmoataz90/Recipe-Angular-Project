@@ -25,7 +25,7 @@ export class MealPlanService {
     return this.weeklyPlan.asObservable();
   }
 
-  updateMeal(dayIndex: number, mealType: 'breakfast' | 'lunch' | 'dinner', meal: Meal) {
+  updateMeal(dayIndex: number, mealType: 'breakfast' | 'lunch' | 'dinner'|'snacks', meal: Meal) {
     const currentPlan = this.weeklyPlan.value;
     const updatedPlan = [...currentPlan];
     updatedPlan[dayIndex] = {
@@ -35,13 +35,13 @@ export class MealPlanService {
     this.weeklyPlan.next(updatedPlan);
   }
 
-  addSnack(dayIndex: number, snack: Meal) {
-    const currentPlan = this.weeklyPlan.value;
-    const updatedPlan = [...currentPlan];
-    updatedPlan[dayIndex] = {
-      ...updatedPlan[dayIndex],
-      snacks: [...updatedPlan[dayIndex].snacks, snack]
-    };
-    this.weeklyPlan.next(updatedPlan);
-  }
+  // addSnack(dayIndex: number, snack: Meal) {
+  //   const currentPlan = this.weeklyPlan.value;
+  //   const updatedPlan = [...currentPlan];
+  //   updatedPlan[dayIndex] = {
+  //     ...updatedPlan[dayIndex],
+  //     snacks: [...updatedPlan[dayIndex].snacks, snack]
+  //   };
+  //   this.weeklyPlan.next(updatedPlan);
+  // }
 }

@@ -72,17 +72,18 @@
 	display: block;
 	width: 100%;
 	padding: 16px 0;
-	border-radius: 15px;
-	background: rgba(255, 145, 77, 1);
-	color: #fff;
+	border-radius: 15px ;
+	background: white;
+	color: #002B5B;
 	font-weight: 500;
 	font-size: 16px;
-	border: none;
 	cursor: pointer;
 	transition: all .3s ease;
+  border: 1px solid #002B5B;
 }
 .select-image:hover {
-	background: rgb(248, 178, 135);
+	background: #002B5B;
+  color: white;
 }
 .card
 {
