@@ -69,8 +69,9 @@ export class PostrecipeComponent {
     };
 
     console.log(recipe);
-    // Save the recipe using the service
+    // Add the new recipe to the posts using the service
     this.Postservice.setPost(recipe);
+    this.navigateToProfile();
   }
 
   navigateToProfile() {

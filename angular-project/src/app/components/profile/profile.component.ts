@@ -147,12 +147,6 @@ export class ProfileComponent implements OnInit{
       this.userName = email.split('@')[0]; // Extract name before '@'
     }
 
-     // Retrieve recipe data from the service
-    // const recipe = this.recipeService.getRecipe();
-    // const recipe = this.postservice.getPost();
-    // if (recipe) {
-    //   this.cards.push(recipe);
-    // }
     this.cards = this.postservice.getPost();
     console.log('Cards:', this.cards);
   }
