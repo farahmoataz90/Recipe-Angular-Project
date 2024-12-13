@@ -3,12 +3,17 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { PostService } from '../../services/posts.service';
+// import { NgModule } from '@angular/core';
+// import { CommonModule } from '@angular/common';  // This is for common Angular directives like ngIf
+import { FormsModule } from '@angular/forms';
+
 
 
 @Component({
   selector: 'app-postrecipe',
   standalone: true,
-  imports: [CommonModule,NavbarComponent,FooterComponent],
+  imports: [CommonModule,NavbarComponent,FooterComponent,FormsModule],
   templateUrl: './postrecipe.component.html',
   styleUrl: './postrecipe.component.scss'
 })
@@ -26,7 +31,7 @@ export class PostrecipeComponent {
   cookingSteps: string = '';
   nutritionalInfo: string = '';
 
-  constructor(private router: Router) {}
+  constructor(private Postservice:PostService , private router: Router) {}
 
   onFileChange(event: Event): void {
     const inputFile = event.target as HTMLInputElement;
@@ -63,9 +68,15 @@ export class PostrecipeComponent {
       nutrition: this.nutritionalInfo
     };
 
-    // Send the recipe to the profile component (use a service or state management if necessary)
-    // For now, assuming a basic solution for navigation and passing data via state.
-    this.router.navigate(['/profile'], { state: { recipe } });
+    console.log(recipe);
+    // Save the recipe using the service
+    this.Postservice.setPost(recipe);
   }
+
+  navigateToProfile() {
+    this.router.navigate(['/profile']);  // Navigate to the profile page
+  }
+
+
 
 }
