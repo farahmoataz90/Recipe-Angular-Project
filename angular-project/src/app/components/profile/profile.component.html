@@ -5,10 +5,27 @@
 <div class="container">
   <div class="card cardpos text-center" >
     <img src="assets/images/avatar1.jpg" class="card-img-top cardimage" alt="...">
-    <div class="card-body ">
+    <div class="card-body text-center">
       <h5 class="card-title textcolor fw-bold fs-3 mb-2">{{ userName }}</h5>
-      <a href="/login" class="btn b2 mt-3">Logout</a>
+      <div class="d-flex justify-content-between">
+        <div>
+          <h6 class="fw-bold fs-3 textcolor">3M</h6>
+          <small class="text-secondary fs-5">Followers</small>
+        </div>
+        <div class="ms-5">
+          <h6 class="fw-bold fs-3 textcolor">{{ cards.length }}</h6>
+          <small class="text-secondary fs-5">Recipes</small>
+        </div>
+        <div class="ms-5">
+          <h6 class="fw-bold fs-3 textcolor">900</h6>
+          <small class="text-secondary fs-5">Followings</small>
+        </div>
+
+      </div>
+      <a href="/login" class="btn b2 mt-4 px-5">Log out</a>
     </div>
+
+
   </div>
 
   <h5 class=" textcolor fw-bold fs-3">Your posts</h5>

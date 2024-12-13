@@ -3,6 +3,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { CardComponent } from '../card/card.component';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -134,13 +135,24 @@ export class ProfileComponent {
   ];
 
   userName: string | null = '';
+  // cards: Array<any> = [];
+
 
   ngOnInit(): void {
     const email = sessionStorage.getItem('email');
     if (email) {
       this.userName = email.split('@')[0]; // Extract name before '@'
     }
+
+     // Retrieve recipe from the navigation state
+    //  const state = window.history.state;
+    //  if (state && state.recipe) {
+    //    this.cards.push(state.recipe);
+    //  }
   }
+
+
+
 
 
 }
