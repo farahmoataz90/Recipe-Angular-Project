@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { CommonModule } from '@angular/common';
@@ -132,5 +132,15 @@ export class ProfileComponent {
       ,
     },
   ];
+
+  userName: string | null = '';
+
+  ngOnInit(): void {
+    const email = sessionStorage.getItem('email');
+    if (email) {
+      this.userName = email.split('@')[0]; // Extract name before '@'
+    }
+  }
+
 
 }

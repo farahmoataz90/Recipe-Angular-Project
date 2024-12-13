@@ -138,27 +138,19 @@ export class HomeComponent {
     },
   ];
 
+
+  userName: string | null = '';
+
   filteredCards = [...this.cards];
   searchQuery: string = '';
 
 
-  // ngOnInit(): void {
-  //   // Ensure all cards are displayed when the component loads
-  //   this.filteredCards = [...this.cards];
-  //   console.log('Initial Cards:', this.filteredCards);
-
-  // }
-
-
-//   filterRecipes(): void {
-//     const query = this.searchQuery.trim().toLowerCase();
-//     this.filteredCards = this.cards.filter(card =>
-//       card.title.toLowerCase().includes(query)
-//     );
-//     console.log('Search Query:', this.searchQuery);
-// console.log('Filtered Cards:', this.filteredCards);
-
-//   }
+  ngOnInit(): void {
+    const email = sessionStorage.getItem('email');
+    if (email) {
+      this.userName = email.split('@')[0]; // Extract name before '@'
+    }
+  }
 
 onSearchInputChange() {
   this.filteredCards = this.cards.filter((card) =>
