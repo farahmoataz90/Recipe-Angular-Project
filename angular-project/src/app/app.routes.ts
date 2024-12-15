@@ -11,6 +11,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
 import { ShoppinglistComponent } from './components/shoppinglist/shoppinglist.component';
 import { MealplanningComponent } from './components/mealplanning/mealplanning.component';
+import { ExploreComponent } from './components/explore/explore.component';
 // import { MealplannerComponent } from './components/mealplanner/mealplanner.component';
 
 export const routes: Routes = [
@@ -26,6 +27,10 @@ export const routes: Routes = [
   {
     path: "home",
     component: HomeComponent
+  },
+  {
+    path: "explore",
+    component: ExploreComponent
   },
   {
     path: "details",

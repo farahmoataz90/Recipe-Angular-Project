@@ -1,22 +1,20 @@
-import { Component, OnInit} from '@angular/core';
+import { Component } from '@angular/core';
+import { FooterComponent } from '../footer/footer.component';
 import { CardComponent } from '../card/card.component';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from '../navbar/navbar.component';
-import { FooterComponent } from '../footer/footer.component';
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
+
+
 @Component({
-  selector: 'app-home',
+  selector: 'app-explore',
   standalone: true,
-  imports: [CommonModule,CardComponent,NavbarComponent,FooterComponent,FormsModule],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  imports: [FooterComponent,CardComponent,CommonModule,FormsModule],
+  templateUrl: './explore.component.html',
+  styleUrl: './explore.component.scss'
 })
-export class HomeComponent {
-
-
+export class ExploreComponent {
 
   cards = [
     {
@@ -152,25 +150,58 @@ export class HomeComponent {
   ];
 
 
-  userName: string | null = '';
-
   filteredCards = [...this.cards];
   searchQuery: string = '';
 
+  filters = {
+    cuisine: '',
+    time: '',
+    ingredients: ''
+  };
 
-  ngOnInit(): void {
-    const email = sessionStorage.getItem('email');
-    if (email) {
-      this.userName = email.split('@')[0]; // Extract name before '@'
+
+  onSearchInputChange() {
+    this.filteredCards = this.cards.filter((card) =>
+      card.title.toLowerCase().includes(this.searchQuery.toLowerCase())
+    );
+    console.log('Search Query:', this.searchQuery);
+    console.log('Filtered Cards:', this.filteredCards);
+  }
+
+
+  onFilterChange(filterKey: 'cuisine' | 'time' | 'ingredients', value: string) {
+    if (value !== null && this.filters[filterKey] !== undefined) {
+      this.filters[filterKey] = value;
+      this.applyFilters();
     }
   }
 
-onSearchInputChange() {
-  this.filteredCards = this.cards.filter((card) =>
-    card.title.toLowerCase().includes(this.searchQuery.toLowerCase())
-  );
-  console.log('Search Query:', this.searchQuery);
-  console.log('Filtered Cards:', this.filteredCards);
-}
+  onCuisineFilterChange(event: Event): void {
+    const target = event.target as HTMLSelectElement;
+    this.onFilterChange('cuisine', target.value);
+  }
+
+  onTimeFilterChange(event: Event): void {
+    const target = event.target as HTMLSelectElement;
+    this.onFilterChange('time', target.value);
+  }
+
+  onIngredientsFilterChange(event: Event): void {
+    const target = event.target as HTMLSelectElement;
+    this.onFilterChange('ingredients', target.value);
+  }
+
+
+  applyFilters() {
+    this.filteredCards = this.cards.filter((card) => {
+      const matchesCuisine = this.filters.cuisine ? card.cuisine === this.filters.cuisine : true;
+      const matchesTime = this.filters.time ? card.time === this.filters.time : true;
+      const matchesIngredients = this.filters.ingredients
+        ? card.ingredients.includes(this.filters.ingredients)
+        : true;
+
+      return matchesCuisine && matchesTime && matchesIngredients;
+    });
+  }
 
 }

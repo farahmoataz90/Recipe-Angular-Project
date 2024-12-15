@@ -35,19 +35,6 @@
         <h2 class="mb-3 mx-2 mt-5 fw-bold textcolor">
           Recipe Feed
         </h2>
-        <form class="mt-3 mt-lg-1 ms-lg-3 d-flex align-items-center position-relative">
-          <span class="position-absolute ps-3 search-icon">
-            <i class="bi bi-search"></i>
-          </span>
-          <input
-           type="search"
-           placeholder="Search Recipes"
-           class=" ps-5 form-control"
-           [(ngModel)]="searchQuery"
-    (input)="onSearchInputChange()"
-    [ngModelOptions]="{standalone: true}"
-           >
-        </form>
       </div>
     </div>
     <div class="row">
@@ -58,6 +45,7 @@
           [title]="card.title"
           [time]="card.time"
           [rating]="card.rating"
+          [cuisine]="card.cuisine"
           [ingredients]= "card.ingredients"
           [cookingSteps]="card.cookingSteps"
           [nutrition]="card.nutrition"

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -13,6 +13,7 @@ export class CardComponent {
   @Input() title!: string;    // Input for the title
   @Input() time!: string;     // Input for the time
   @Input() rating!: number;
+  @Input() cuisine!: string;
      // Input for the rating
 
 
