@@ -29,8 +29,8 @@
         </ul>
       </div>
       <div class="ms-md-auto d-flex">
-        <a class="btn btn-primary-soft rounded-circle icon-md ms-auto" (click)="addToFollowing()">
-          <i class="bi bi-plus"></i>
+        <a class="btn btn-primary-soft rounded-circle icon-md ms-auto" (click)="toggleFollowing()">
+          <i [class.bi-plus]="!isFollowing" [class.bi-person-check-fill]="isFollowing"></i>
         </a>
       </div>
     </div>
