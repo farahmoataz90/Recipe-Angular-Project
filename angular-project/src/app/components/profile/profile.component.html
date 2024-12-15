@@ -4,7 +4,22 @@
 
 <div class="container">
   <div class="card cardpos text-center" >
-    <img src="assets/images/avatar1.jpg" class="card-img-top cardimage" alt="...">
+    <!-- here -->
+    <input
+    type="file"
+    id="imageInput"
+    accept="image/*"
+    (change)="onImageChange($event)"
+    style="display: none;"
+  />
+    <!-- end here -->
+    <!-- <img src="assets/images/person.png" class="card-img-top cardimage" alt="..."> -->
+    <img
+    [src]="profileImage"
+    class="card-img-top cardimage"
+    alt="Profile Picture"
+    (click)="triggerFileInput()"
+  />
     <div class="card-body text-center">
       <h5 class="card-title textcolor fw-bold fs-3 mb-2">{{ userName }}</h5>
       <div class="d-flex justify-content-between">
