@@ -20,6 +20,7 @@ export class ProfileComponent implements OnInit{
   cards: any[] = [];
 
   profileImage: string = 'assets/images/person.png'; // Default image
+  followingCount = 0; // Tracks the count of followings
 
   constructor(private postservice : PostService){}
 
@@ -42,9 +43,16 @@ export class ProfileComponent implements OnInit{
       this.profileImage = savedImage;
     }
 
-
+    this.updateFollowingCount();
 
   }
+
+  updateFollowingCount() {
+    const followingList = JSON.parse(sessionStorage.getItem('followingList') || '[]');
+    this.followingCount = followingList.length;
+  }
+
+
 
 
   triggerFileInput(): void {

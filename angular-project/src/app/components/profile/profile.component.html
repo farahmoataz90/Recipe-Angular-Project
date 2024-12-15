@@ -1,10 +1,8 @@
-<!-- <app-navbar></app-navbar> -->
 <br>
 <br>
 
 <div class="container">
   <div class="card cardpos text-center" >
-    <!-- here -->
     <input
     type="file"
     id="imageInput"
@@ -12,8 +10,6 @@
     (change)="onImageChange($event)"
     style="display: none;"
   />
-    <!-- end here -->
-    <!-- <img src="assets/images/person.png" class="card-img-top cardimage" alt="..."> -->
     <img
     [src]="profileImage"
     class="card-img-top cardimage"
@@ -32,7 +28,7 @@
           <small class="text-secondary fs-5">Recipes</small>
         </div>
         <div class="ms-5">
-          <h6 class="fw-bold fs-3 textcolor clickable"><a href="/following">900</a></h6>
+          <h6 class="fw-bold fs-3 textcolor clickable"><a href="/following">{{ followingCount }}</a></h6>
           <small class="text-secondary fs-5">Followings</small>
         </div>
 
