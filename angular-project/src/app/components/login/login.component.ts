@@ -17,6 +17,8 @@ export class LoginComponent {
     password: ['', Validators.required]
   });
 
+  loginError: string | null = null;
+
   constructor(private fb: FormBuilder , private authService:AuthService , private router : Router) {}
 
   get email() {
@@ -35,10 +37,13 @@ export class LoginComponent {
         {
           sessionStorage.setItem('email',email as string) ;
           this.router.navigate(['/home']);
+        } else {
+          this.loginError = 'Incorrect username or password.';
         }
       }, error =>
       {
-        console.log("yarab nekhlaas");
+        console.error("Error occurred during login", error);
+        this.loginError = 'An error occurred. Please try again later.';
       }
     )
   }
