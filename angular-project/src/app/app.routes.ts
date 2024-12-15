@@ -12,6 +12,7 @@ import { AuthGuard } from './auth.guard';
 import { ShoppinglistComponent } from './components/shoppinglist/shoppinglist.component';
 import { MealplanningComponent } from './components/mealplanning/mealplanning.component';
 import { ExploreComponent } from './components/explore/explore.component';
+import { FollowersComponent } from './components/followers/followers.component';
 // import { MealplannerComponent } from './components/mealplanner/mealplanner.component';
 
 export const routes: Routes = [
@@ -27,6 +28,10 @@ export const routes: Routes = [
   {
     path: "home",
     component: HomeComponent
+  },
+  {
+    path: "followers",
+    component: FollowersComponent
   },
   {
     path: "explore",

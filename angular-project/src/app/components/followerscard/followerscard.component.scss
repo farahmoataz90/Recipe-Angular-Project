@@ -1,0 +1,63 @@
+.textcolor
+{
+  color: #002B5B;
+}
+.avatar {
+  height: 3rem;
+  width: 3rem;
+  position: relative;
+  display: inline-block;
+  -ms-flex-negative: 0 !important;
+  flex-shrink: 0 !important;
+}
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+.avatar-group {
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.avatar-group > li:not(:last-child) {
+  margin-right: -0.8rem;
+}
+.avatar-group > li {
+  position: relative;
+}
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+.avatar-xxs {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+button:not(:disabled), [type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled) {
+  cursor: pointer;
+}
+.btn-danger-soft {
+  color: #d6293e;
+  background-color: rgba(214, 41, 62, 0.1);
+}
+.btn-primary-soft {
+  color: #0f6fec;
+  background-color: rgba(15, 111, 236, 0.1);
+}
+.hstack {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+}

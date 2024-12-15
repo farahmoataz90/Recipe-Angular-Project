@@ -1,0 +1,38 @@
+<div class="card mb-2">
+  <div class="card-body">
+    <div class="d-md-flex align-items-center mb-4">
+      <div class="avatar me-3 mb-3 mb-md-0">
+        <a>
+          <img [src]="mainImage" class="avatar-img rounded-circle">
+        </a>
+      </div>
+      <div class="w-100">
+        <div class="d-sm-flex align-items-start">
+          <h6 class="mb-0"><a>{{ name }}</a></h6>
+          <p class="small ms-sm-2 mb-0">{{ position }}</p>
+        </div>
+        <ul class="avatar-group mt-1 list-unstyled align-items-sm-center">
+          <li class="avatar avatar-xxs">
+            <img class="avatar-img rounded-circle" [src]="image1" alt="avatar">
+          </li><li class="avatar avatar-xxs">
+            <img class="avatar-img rounded-circle" [src]="image2" alt="avatar">
+          </li><li class="avatar avatar-xxs">
+            <img class="avatar-img rounded-circle" [src]="image3" alt="avatar">
+          </li><li class="avatar avatar-xxs">
+            <img class="avatar-img rounded-circle" [src]="image4" alt="avatar">
+          </li><li class="avatar avatar-xxs">
+            <img class="avatar-img rounded-circle" [src]="image5" alt="avatar">
+          </li>
+          <li class="small ms-3">
+            Carolyn Ortiz, Frances Guerrero, and {{ num }} other shared connections
+          </li>
+        </ul>
+      </div>
+      <div class="ms-md-auto d-flex">
+        <a class="btn btn-primary-soft rounded-circle icon-md ms-auto" href="#">
+          <i class="bi bi-plus"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
