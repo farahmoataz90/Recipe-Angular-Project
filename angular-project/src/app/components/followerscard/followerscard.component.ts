@@ -1,4 +1,4 @@
-import { Component, Input  } from '@angular/core';
+import { Component, Input , Output, EventEmitter } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -18,6 +18,49 @@ export class FollowerscardComponent {
   @Input() image3!: string;
   @Input() image4!: string;
   @Input() image5!: string;
+
+
+  // @Output() follow = new EventEmitter<any>();
+
+  // onFollow() {
+  //   const cardData = {
+  //     mainImage: this.mainImage,
+  //     name: this.name,
+  //     position: this.position,
+  //     num: this.num,
+  //     image1: this.image1,
+  //     image2: this.image2,
+  //     image3: this.image3,
+  //     image4: this.image4,
+  //     image5: this.image5,
+  //   };
+  //   this.follow.emit(cardData);
+  // }
+
+  addToFollowing() {
+    const currentFollowList = JSON.parse(sessionStorage.getItem('followingList') || '[]');
+    const newFollower = {
+      mainImage: this.mainImage,
+      name: this.name,
+      position: this.position,
+      num: this.num,
+      image1: this.image1,
+      image2: this.image2,
+      image3: this.image3,
+      image4: this.image4,
+      image5: this.image5,
+    };
+
+    // Check if already exists
+    const alreadyExists = currentFollowList.some(
+      (follower: any) => follower.name === newFollower.name
+    );
+
+    if (!alreadyExists) {
+      currentFollowList.push(newFollower);
+      sessionStorage.setItem('followingList', JSON.stringify(currentFollowList));
+    }
+  }
 
 
 

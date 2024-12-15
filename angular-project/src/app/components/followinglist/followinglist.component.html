@@ -1,0 +1,18 @@
+<div class="container">
+  <h1 class="textcolor fw-bold mb-3 mt-3">Following</h1>
+  <div *ngFor="let follower of followingList">
+    <app-followerscard
+      [mainImage]="follower.mainImage"
+      [name]="follower.name"
+      [position]="follower.position"
+      [num]="follower.num"
+      [image1]="follower.image1"
+      [image2]="follower.image2"
+      [image3]="follower.image3"
+      [image4]="follower.image4"
+      [image5]="follower.image5"
+    ></app-followerscard>
+  </div>
+</div>
+
+<app-footer></app-footer>

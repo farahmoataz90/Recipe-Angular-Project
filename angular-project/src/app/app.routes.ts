@@ -1,4 +1,3 @@
-// import { Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { HomeComponent } from './components/home/home.component';
@@ -13,7 +12,8 @@ import { ShoppinglistComponent } from './components/shoppinglist/shoppinglist.co
 import { MealplanningComponent } from './components/mealplanning/mealplanning.component';
 import { ExploreComponent } from './components/explore/explore.component';
 import { FollowersComponent } from './components/followers/followers.component';
-// import { MealplannerComponent } from './components/mealplanner/mealplanner.component';
+import { FollowinglistComponent } from './components/followinglist/followinglist.component';
+
 
 export const routes: Routes = [
 
@@ -40,6 +40,10 @@ export const routes: Routes = [
   {
     path: "details",
     component: DetailsComponent
+  },
+  {
+    path: "following",
+    component: FollowinglistComponent
   },
   {
     path: 'addreview',

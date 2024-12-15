@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FooterComponent } from '../footer/footer.component';
 import { FollowerscardComponent } from '../followerscard/followerscard.component';
 import { CommonModule } from '@angular/common';
+import { FollowingService } from '../../services/following.service';
 
 
 
@@ -205,5 +206,13 @@ export class FollowersComponent {
       image5: 'assets/images/bishoy.jpg'
   }
   ];
+
+  constructor(private followingService: FollowingService) {}
+
+  addToFollowing(card: any) {
+    this.followingService.addCard(card);
+  }
+
+
 
 }
