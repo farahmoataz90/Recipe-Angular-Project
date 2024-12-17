@@ -7,7 +7,7 @@
          <h4 class="mb-2 text-truncate-line-2 textcolor">{{ title }}</h4>
         </div>
         <div class="col-auto col">
-          <a class="cursor-pointer iconcolor px-1 fw-bold" (click)="toggleBookmark()">
+          <a class="cursor-pointer iconcolor px-1 fw-bold cc" (click)="toggleBookmark()">
             <i [ngClass]="isBookmarked ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'"></i>
           </a>
         </div>
@@ -43,7 +43,13 @@
           </a>
         </div>
         <div class="col-auto col">
-          <i class="bi bi-heart iconcolor fs-4 ms-4"></i>
+          <!-- <i class="bi bi-heart iconcolor fs-4 ms-4"></i> -->
+           <!-- Heart Icon Toggle -->
+          <i
+          class="bi iconcolor fs-4 ms-4 cc"
+          [ngClass]="liked ? 'bi-heart-fill' : 'bi-heart'"
+          (click)="toggleLike()"
+          ></i>
         </div>
         <div class="col-auto col">
           <i class="bi bi-chat-fill iconcolor ms-3 fs-4"></i>

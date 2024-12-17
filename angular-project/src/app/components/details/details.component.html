@@ -13,7 +13,13 @@
               <h1 class="mb-1 fw-bold h1style col-7">{{ title }}</h1>
               <div class="ms-auto d-lg-flex col-5">
                 <button type="button" class="icon-button b me-1">
-                  <i class="bi bi-heart"></i>
+                  <!-- <i class="bi bi-heart"></i> -->
+                   <!-- Heart Icon Toggle -->
+                 <i
+                 class="bi"
+                 [ngClass]="liked ? 'bi-heart-fill iconcolor' : 'bi-heart iconcolor'"
+                 (click)="toggleLike()"
+                 ></i>
                 </button>
                 <button type="button" class="icon-button b me-1">
                   <i class="bi bi-chat-fill"></i>

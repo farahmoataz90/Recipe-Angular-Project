@@ -1,4 +1,4 @@
-import { Component, input, Input } from '@angular/core';
+import { Component, input, Input , OnInit} from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BookmarkService } from '../../services/bookmark.service';
 import { CommonModule } from '@angular/common';
@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'
 })
-export class CardComponent {
+export class CardComponent implements OnInit{
   @Input() imageSrc!: string; // Input for the image URL
   @Input() title!: string;    // Input for the title
   @Input() time!: string;     // Input for the time
@@ -28,10 +28,17 @@ export class CardComponent {
 
 
   isBookmarked: boolean = false;
-  constructor(private bookmarkService: BookmarkService) {}
+  liked: boolean = false;
+
+  constructor(private bookmarkService: BookmarkService) {
+    // // Check session storage if the recipe is liked
+    // const likedRecipes = JSON.parse(sessionStorage.getItem('likedRecipes') || '{}');
+    // this.liked = likedRecipes[this.title] || false;
+  }
 
   ngOnInit() {
     this.isBookmarked = this.bookmarkService.isRecipeSaved(this.title);
+    this.loadLikedState();
   }
 
   toggleBookmark() {
@@ -54,5 +61,19 @@ export class CardComponent {
     this.isBookmarked = !this.isBookmarked;
   }
 
+  loadLikedState() {
+    // Load the "liked" state for this card title from session storage
+    const likedRecipes = JSON.parse(sessionStorage.getItem('likedRecipes') || '{}');
+    this.liked = likedRecipes[this.title] || false;
+  }
+
+  toggleLike() {
+    this.liked = !this.liked;
+
+    // Update session storage
+    const likedRecipes = JSON.parse(sessionStorage.getItem('likedRecipes') || '{}');
+    likedRecipes[this.title] = this.liked;
+    sessionStorage.setItem('likedRecipes', JSON.stringify(likedRecipes));
+  }
 
 }

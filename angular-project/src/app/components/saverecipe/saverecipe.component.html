@@ -1,7 +1,7 @@
 <div class="container mt-4">
-  <h2>Saved Recipes</h2>
+  <h2 class="textcolor fw-bold">Saved Recipes</h2>
   <div *ngIf="savedRecipes.length === 0">
-    <p>No recipes saved yet!</p>
+    <p class="text-secondary">No recipes saved yet!</p>
   </div>
   <div class="row">
     <div class="col-md-4 mb-4" *ngFor="let recipe of savedRecipes">
@@ -19,3 +19,4 @@
     </div>
   </div>
 </div>
+<app-footer></app-footer>

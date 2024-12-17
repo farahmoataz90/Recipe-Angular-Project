@@ -74,6 +74,7 @@ export class DetailsComponent implements OnInit{
   nutrition!: string[];
 
   isBookmarked: boolean = false;
+  liked: boolean = false;
   constructor(private route: ActivatedRoute , private shoppingService: ShoppingService,private bookmarkService: BookmarkService) {}
 
 
@@ -98,6 +99,10 @@ export class DetailsComponent implements OnInit{
     });
     this.isBookmarked = this.bookmarkService.isRecipeSaved(this.title);
 
+    // Load "liked" state from session storage
+    const likedRecipes = JSON.parse(sessionStorage.getItem('likedRecipes') || '{}');
+    this.liked = likedRecipes[this.title] || false;
+
 }
 toggleBookmark() {
   const recipe = {
@@ -116,6 +121,16 @@ toggleBookmark() {
     this.bookmarkService.saveRecipe(recipe);
   }
   this.isBookmarked = !this.isBookmarked;
+}
+
+
+toggleLike() {
+  this.liked = !this.liked;
+
+  // Save to session storage
+  const likedRecipes = JSON.parse(sessionStorage.getItem('likedRecipes') || '{}');
+  likedRecipes[this.title] = this.liked;
+  sessionStorage.setItem('likedRecipes', JSON.stringify(likedRecipes));
 }
 
 }
