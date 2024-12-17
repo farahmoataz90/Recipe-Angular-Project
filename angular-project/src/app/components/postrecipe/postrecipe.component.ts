@@ -7,9 +7,6 @@ import { PostService } from '../../services/posts.service';
 // import { NgModule } from '@angular/core';
 // import { CommonModule } from '@angular/common';  // This is for common Angular directives like ngIf
 import { FormsModule } from '@angular/forms';
-
-
-
 @Component({
   selector: 'app-postrecipe',
   standalone: true,
@@ -18,14 +15,10 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './postrecipe.component.scss'
 })
 
-
-
 export class PostrecipeComponent {
   imgAreaActive = false;
   selectedImageName: string | null = null;
   imageUrl: string | null = null;
-
-
   recipeName: string = '';
   ingredients: string = '';
   cookingSteps: string = '';
@@ -51,33 +44,31 @@ export class PostrecipeComponent {
     }
   }
 
-
   onSelectImage(fileInput: HTMLInputElement): void {
     fileInput.click();
   }
 
-
   postRecipe(): void {
     const recipe = {
-      imageSrc: this.imageUrl,
+      id: Math.floor(Math.random() * 1000), // Generate a random ID for now
+      imageSrc: this.imageUrl || 'assets/images/default.jpg', // Fallback image if none uploaded
       title: this.recipeName,
-      time: '30 min',  // Example static time, update as needed
-      rating: 4.5, // Example static rating, update as needed
-      ingredients: this.ingredients,
-      cookingSteps: this.cookingSteps,
-      nutrition: this.nutritionalInfo
+      time: '30 min',  // Example static time
+      rating: 4.5, // Example static rating
+      cuisine: 'Custom', // Default cuisine, you can allow users to input this too
+      ingredients: this.ingredients.split(','), // Convert comma-separated string to an array
+      cookingSteps: this.cookingSteps.split('.'), // Split steps by periods into an array
+      nutrition: this.nutritionalInfo.split(',') // Convert comma-separated nutrition into an array
     };
 
-    console.log(recipe);
-    // Add the new recipe to the posts using the service
+    console.log(recipe); // Debugging
     this.Postservice.setPost(recipe);
     this.navigateToProfile();
   }
 
+
   navigateToProfile() {
     this.router.navigate(['/profile']);  // Navigate to the profile page
   }
-
-
 
 }

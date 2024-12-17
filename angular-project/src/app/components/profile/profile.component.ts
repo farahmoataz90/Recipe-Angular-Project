@@ -17,7 +17,7 @@ import { PostService } from '../../services/posts.service';
 export class ProfileComponent implements OnInit{
 
   userName: string | null = '';
-  cards: any[] = [];
+  cards: any[] = []; // To hold posts from PostService
 
   profileImage: string = 'assets/images/person.png'; // Default image
   followingCount = 0; // Tracks the count of followings
@@ -33,8 +33,12 @@ export class ProfileComponent implements OnInit{
         this.userName = email.split('@')[0]; // Extract name before '@'
      }
       // Get all posts from the PostService
+      // this.cards = this.postservice.getPost();
+      // console.log('Cards:', this.cards);
+
+
+
       this.cards = this.postservice.getPost();
-      console.log('Cards:', this.cards);
 
 
     // Load saved image from session storage (if available)

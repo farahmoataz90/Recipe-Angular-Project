@@ -1,12 +1,8 @@
-<!-- <app-navbar></app-navbar> -->
-
 <br><br>
-<!-- hg fd-->
  <div class="container">
 <div class="card mb-3 mt-8">
   <div class="row">
     <div class="col-md-6">
-      <!-- <img src="..." class="img-fluid rounded-start" alt="..."> -->
       <div class="container">
         <input
           type="file"
@@ -16,7 +12,6 @@
           (change)="onFileChange($event)"
           #fileInput
         />
-
         <div class="img-area" [class.active]="imgAreaActive" [attr.data-img]="selectedImageName || ''">
           <ng-container *ngIf="imageUrl; else defaultContent">
             <img [src]="imageUrl" [alt]="selectedImageName" />
@@ -33,12 +28,9 @@
     </div>
     <div class="col-md-6">
       <div class="card-body">
-        <!-- here -->
         <div class="card-title ps-lg-10 mt-6 mt-md-0">
           <div class="row">
             <h1 class="mb-1 fw-bold h1style col-7">Post Your Recipe</h1>
-            <!-- <form (ngSubmit)="addPost(newPost)"> -->
-            <!-- <a href="" class="mb-2 d-block linkstyle fs-5">Tell us your opinion</a> -->
             <label for="name" class="fw-bold textcolor mb-2" >Recipe Name:</label>
             <input placeholder="Enter your recipe name" [(ngModel)]="recipeName" class="form-control mb-3" type="text" name="name">
             <label for="review" class="fw-bold textcolor mb-2">Ingredients:</label>
@@ -50,18 +42,12 @@
             <div class="d-flex justify-content-end">
               <a role="button" tabindex="0"  class="btn btncolor px-4" (click)="postRecipe(); navigateToProfile()">post Recipe</a>
             </div>
-          <!-- </form> -->
           </div>
         </div>
-        <!-- end here -->
       </div>
     </div>
   </div>
 </div>
 </div>
- <!-- dshfhds -->
-
-
  <br><br>
-
  <app-footer></app-footer>
