@@ -31,11 +31,7 @@ export class CardComponent implements OnInit{
   isBookmarked: boolean = false;
   liked: boolean = false;
 
-  constructor(private bookmarkService: BookmarkService) {
-    // // Check session storage if the recipe is liked
-    // const likedRecipes = JSON.parse(sessionStorage.getItem('likedRecipes') || '{}');
-    // this.liked = likedRecipes[this.title] || false;
-  }
+  constructor(private bookmarkService: BookmarkService) { }
 
   ngOnInit() {
     this.isBookmarked = this.bookmarkService.isRecipeSaved(this.title);

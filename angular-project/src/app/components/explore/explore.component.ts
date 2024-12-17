@@ -18,6 +18,7 @@ export class ExploreComponent {
 
   cards = [
     {
+      id: 1,
       imageSrc: 'assets/images/food1.jpg',
       title: 'Vegetarian Tacos',
       time: '20 min',
@@ -36,6 +37,7 @@ export class ExploreComponent {
   ,
     },
     {
+      id: 2,
       imageSrc: 'assets/images/food2.jpg',
       title: 'Smash Burger',
       time: '25 min',
@@ -51,6 +53,7 @@ export class ExploreComponent {
       ,
     },
     {
+      id: 3,
       imageSrc: 'assets/images/food3.jpg',
       title: 'Paella',
       time: '40 min',
@@ -66,6 +69,7 @@ export class ExploreComponent {
       ,
     },
     {
+      id: 4,
       imageSrc: 'assets/images/food4.jpg',
       title: 'Churros',
       time: '1.5 hr',
@@ -83,6 +87,7 @@ export class ExploreComponent {
       ,
     },
     {
+      id: 5,
       imageSrc: 'assets/images/food5.jpg',
       title: 'Chicken alfredo',
       time: '50 min',
@@ -99,6 +104,7 @@ export class ExploreComponent {
       ,
     },
     {
+      id:6,
       imageSrc: 'assets/images/food6.jpg',
       title: 'Meat lover Pizza',
       time: '45 min',
@@ -116,6 +122,7 @@ export class ExploreComponent {
       ,
     },
     {
+      id:7,
       imageSrc: 'assets/images/food7.jpg',
       title: 'Wara2 3enab',
       time: '1 hr',
@@ -132,6 +139,7 @@ export class ExploreComponent {
       ,
     },
     {
+      id:9,
       imageSrc: 'assets/images/om.jpg',
       title: 'Om Ali',
       time: '1 hr',
@@ -149,6 +157,7 @@ export class ExploreComponent {
       nutrition: ['300-400', '10-15g', '15-20g', '40-50g']
   },
     {
+      id:8,
       imageSrc: 'assets/images/food8.jpg',
       title: 'Bamya',
       time: '45 min',
@@ -165,6 +174,7 @@ export class ExploreComponent {
       ,
     },
     {
+      id:10,
       imageSrc: 'assets/images/Cheesecake.jpg',
       title: 'Cheesecake',
       time: '45 min',
@@ -182,6 +192,8 @@ export class ExploreComponent {
       nutrition: ['300-350', '20-25g', '10-15g', '30-35g']
   },
   {
+    id:11,
+
     imageSrc: 'assets/images/macroni.jpg',
     title: 'Macaroni with Bechamel',
     time: '1 hr',
@@ -199,6 +211,7 @@ export class ExploreComponent {
     nutrition: ['300-400', '20-30g', '15-20g', '40-50g']
 },
 {
+  id:12,
   imageSrc: 'assets/images/kofta.jpg',
   title: 'Kofta',
   time: '1 hr',
@@ -215,6 +228,8 @@ export class ExploreComponent {
   nutrition: ['200-300', '20-30g', '10-15g', '15-20g']
 },
 {
+  id:13,
+
   imageSrc: 'assets/images/sheesh.jpg',
   title: 'Sheesh Tawook',
   time: '45 min',
@@ -230,6 +245,8 @@ export class ExploreComponent {
   nutrition: ['250-300', '25-30g', '10-15g', '10-15g']
 }
 ,{
+  id:14,
+
   imageSrc: 'assets/images/shawerma.jpg',
   title: 'Chicken Shawerma',
   time: '1 hr',
@@ -245,6 +262,8 @@ export class ExploreComponent {
   nutrition: ['300-350', '25-30g', '15-20g', '20-25g']
 },
 {
+  id:15,
+
   imageSrc: 'assets/images/hmam.jpg',
   title: 'Stuffed Pigeon Rice',
   time: '2 hr',
@@ -260,6 +279,8 @@ export class ExploreComponent {
   nutrition: ['350-450', '25-30g', '20-25g', '30-35g']
 },
 {
+  id:16,
+
   imageSrc: 'assets/images/molokhia.jpg',
   title: 'Molokhia',
   time: '45 min',
