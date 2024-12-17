@@ -6,12 +6,14 @@ import { ReviewComponent } from '../review/review.component';
 import { ActivatedRoute } from '@angular/router';
 import { ShoppingService } from '../../services/shared.service';
 import { BookmarkService } from '../../services/bookmark.service';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [CommonModule,NavbarComponent,FooterComponent,ReviewComponent],
+  imports: [CommonModule,NavbarComponent,FooterComponent,ReviewComponent,FormsModule],
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss'
 })
@@ -57,9 +59,9 @@ export class DetailsComponent implements OnInit{
 
 
   ];
+  showCommentBox = false; // To toggle the textbox visibility
+  newCommentText = ''; // To bind the input text
 
-
-  // @Input() ing: string[] = [];
   @Input() ing!: string[];
 
   id!:number;
@@ -67,18 +69,16 @@ export class DetailsComponent implements OnInit{
   title!: string;
   rating!: string;
   time!: string;
-
-
   ingredients!: string[];
   cookingSteps!: string[];
   nutrition!: string[];
 
-  // @Input() productId!: string; // Unique ID for each product
   stars: number = 0; // Current filled stars
-
-
   isBookmarked: boolean = false;
   liked: boolean = false;
+  profileImage: string = 'assets/images/person.png'; // Default profile image
+  userName: string | null = '';
+
   constructor(private route: ActivatedRoute , private shoppingService: ShoppingService,private bookmarkService: BookmarkService) {}
 
 
@@ -86,10 +86,6 @@ export class DetailsComponent implements OnInit{
     console.log('Adding ingredient to shopping list:', ing);
     this.shoppingService.addToShoppingList(ing);
   }
-
-
-
-
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -110,6 +106,49 @@ export class DetailsComponent implements OnInit{
 
     this.loadRating();
 
+    const email = sessionStorage.getItem('email');
+    if (email) {
+      this.userName = email.split('@')[0]; // Extract name before '@'
+    }
+
+    // Load profile image from session storage if available
+    const savedImage = sessionStorage.getItem('profileImage');
+    if (savedImage) {
+      this.profileImage = savedImage;
+    }
+    // Load reviews from sessionStorage if available
+    const savedReviews = sessionStorage.getItem(`reviews-${this.id}`);
+    if (savedReviews) {
+      this.reviews = JSON.parse(savedReviews);
+    }
+
+}
+
+toggleCommentBox(): void {
+  this.showCommentBox = !this.showCommentBox;
+}
+
+addComment(): void {
+  if (this.newCommentText.trim() !== '') {
+    // Create a new review object
+    const newReview = {
+      imageSrc: this.profileImage,
+      name: this.userName || 'Anonymous', // Replace with dynamic user name if available
+      date: new Date().toLocaleString(),
+      comments: this.newCommentText,
+      stars: this.stars // Use dynamic rating from the stars selector
+    };
+
+    // Add to the reviews array
+    this.reviews.push(newReview);
+
+    // Save the updated reviews to sessionStorage
+    sessionStorage.setItem(`reviews-${this.id}`, JSON.stringify(this.reviews));
+
+    // Reset the comment box
+    this.newCommentText = '';
+    this.showCommentBox = false;
+  }
 }
 
 loadRating() {

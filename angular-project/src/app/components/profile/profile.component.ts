@@ -5,8 +5,6 @@ import { CommonModule } from '@angular/common';
 import { CardComponent } from '../card/card.component';
 import { ActivatedRoute } from '@angular/router';
 import { PostService } from '../../services/posts.service';
-
-
 @Component({
   selector: 'app-profile',
   standalone: true,
@@ -32,11 +30,6 @@ export class ProfileComponent implements OnInit{
      {
         this.userName = email.split('@')[0]; // Extract name before '@'
      }
-      // Get all posts from the PostService
-      // this.cards = this.postservice.getPost();
-      // console.log('Cards:', this.cards);
-
-
 
       this.cards = this.postservice.getPost();
 
@@ -55,9 +48,6 @@ export class ProfileComponent implements OnInit{
     const followingList = JSON.parse(sessionStorage.getItem('followingList') || '[]');
     this.followingCount = followingList.length;
   }
-
-
-
 
   triggerFileInput(): void {
     const fileInput = document.getElementById('imageInput') as HTMLInputElement;
