@@ -5,6 +5,7 @@ import { FooterComponent } from '../footer/footer.component';
 import { ReviewComponent } from '../review/review.component';
 import { ActivatedRoute } from '@angular/router';
 import { ShoppingService } from '../../services/shared.service';
+import { BookmarkService } from '../../services/bookmark.service';
 
 
 @Component({
@@ -72,8 +73,8 @@ export class DetailsComponent implements OnInit{
   cookingSteps!: string[];
   nutrition!: string[];
 
-
-  constructor(private route: ActivatedRoute , private shoppingService: ShoppingService) {}
+  isBookmarked: boolean = false;
+  constructor(private route: ActivatedRoute , private shoppingService: ShoppingService,private bookmarkService: BookmarkService) {}
 
 
   addToShoppingList(ing: string): void {
@@ -94,12 +95,27 @@ export class DetailsComponent implements OnInit{
       this.ingredients = params['ingredients'];
       this.cookingSteps = params['cookingSteps'];
       this.nutrition = params['nutrition'];
-
-
-
-
-
-
     });
+    this.isBookmarked = this.bookmarkService.isRecipeSaved(this.title);
 
-}}
+}
+toggleBookmark() {
+  const recipe = {
+    imageSrc: this.image,
+    title: this.title,
+    rating: this.rating,
+    time: this.time,
+    ingredients: this.ingredients,
+    cookingSteps: this.cookingSteps,
+    nutrition: this.nutrition,
+  };
+
+  if (this.isBookmarked) {
+    this.bookmarkService.removeRecipe(this.title);
+  } else {
+    this.bookmarkService.saveRecipe(recipe);
+  }
+  this.isBookmarked = !this.isBookmarked;
+}
+
+}

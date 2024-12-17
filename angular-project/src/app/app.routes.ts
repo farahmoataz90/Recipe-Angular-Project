@@ -13,6 +13,7 @@ import { MealplanningComponent } from './components/mealplanning/mealplanning.co
 import { ExploreComponent } from './components/explore/explore.component';
 import { FollowersComponent } from './components/followers/followers.component';
 import { FollowinglistComponent } from './components/followinglist/followinglist.component';
+import { SaverecipeComponent } from './components/saverecipe/saverecipe.component';
 
 
 export const routes: Routes = [
@@ -36,6 +37,10 @@ export const routes: Routes = [
   {
     path: "explore",
     component: ExploreComponent
+  },
+  {
+    path: "saverecipe",
+    component: SaverecipeComponent
   },
   {
     path: "details",

@@ -1,0 +1,21 @@
+<div class="container mt-4">
+  <h2>Saved Recipes</h2>
+  <div *ngIf="savedRecipes.length === 0">
+    <p>No recipes saved yet!</p>
+  </div>
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let recipe of savedRecipes">
+      <!-- Reuse the Card Component -->
+      <app-card
+        [imageSrc]="recipe.imageSrc"
+        [title]="recipe.title"
+        [rating]="recipe.rating"
+        [time]="recipe.time"
+        [cuisine]="recipe.cuisine"
+        [ingredients]="recipe.ingredients"
+        [cookingSteps]="recipe.cookingSteps"
+        [nutrition]="recipe.nutrition"
+      ></app-card>
+    </div>
+  </div>
+</div>

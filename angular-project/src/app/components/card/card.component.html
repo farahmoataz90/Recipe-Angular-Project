@@ -7,8 +7,8 @@
          <h4 class="mb-2 text-truncate-line-2 textcolor">{{ title }}</h4>
         </div>
         <div class="col-auto col">
-          <a class="cursor-pointer iconcolor px-1 fw-bold">
-            <i class="bi bi-bookmark fw-bold"></i>
+          <a class="cursor-pointer iconcolor px-1 fw-bold" (click)="toggleBookmark()">
+            <i [ngClass]="isBookmarked ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'"></i>
           </a>
         </div>
       </div>
