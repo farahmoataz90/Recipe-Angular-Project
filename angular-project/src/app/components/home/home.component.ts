@@ -20,6 +20,7 @@ export class HomeComponent {
 
   cards = [
     {
+      id: 1,
       imageSrc: 'assets/images/food1.jpg',
       title: 'Vegetarian Tacos',
       time: '20 min',
@@ -38,6 +39,7 @@ export class HomeComponent {
   ,
     },
     {
+      id: 2,
       imageSrc: 'assets/images/food2.jpg',
       title: 'Smash Burger',
       time: '25 min',
@@ -53,6 +55,7 @@ export class HomeComponent {
       ,
     },
     {
+      id: 3,
       imageSrc: 'assets/images/food3.jpg',
       title: 'Paella',
       time: '40 min',
@@ -68,6 +71,7 @@ export class HomeComponent {
       ,
     },
     {
+      id: 4,
       imageSrc: 'assets/images/food4.jpg',
       title: 'Churros',
       time: '1.5 hr',
@@ -85,6 +89,8 @@ export class HomeComponent {
       ,
     },
     {
+      id: 5,
+
       imageSrc: 'assets/images/food5.jpg',
       title: 'Chicken alfredo',
       time: '50 min',
@@ -101,6 +107,7 @@ export class HomeComponent {
       ,
     },
     {
+      id:6,
       imageSrc: 'assets/images/food6.jpg',
       title: 'Meat lover Pizza',
       time: '45 min',
@@ -118,6 +125,7 @@ export class HomeComponent {
       ,
     },
     {
+      id:7,
       imageSrc: 'assets/images/food7.jpg',
       title: 'Wara2 3enab',
       time: '1 hr',
@@ -134,6 +142,7 @@ export class HomeComponent {
       ,
     },
     {
+      id:8,
       imageSrc: 'assets/images/food8.jpg',
       title: 'Bamya',
       time: '45 min',

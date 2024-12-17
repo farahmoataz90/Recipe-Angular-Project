@@ -62,7 +62,7 @@ export class DetailsComponent implements OnInit{
   // @Input() ing: string[] = [];
   @Input() ing!: string[];
 
-
+  id!:number;
   image!: string;
   title!: string;
   rating!: string;
@@ -72,6 +72,10 @@ export class DetailsComponent implements OnInit{
   ingredients!: string[];
   cookingSteps!: string[];
   nutrition!: string[];
+
+  // @Input() productId!: string; // Unique ID for each product
+  stars: number = 0; // Current filled stars
+
 
   isBookmarked: boolean = false;
   liked: boolean = false;
@@ -89,6 +93,7 @@ export class DetailsComponent implements OnInit{
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
+      this.id= params['id'];
       this.image = params['image'];
       this.title = params['title'];
       this.rating = params['rating'];
@@ -103,7 +108,30 @@ export class DetailsComponent implements OnInit{
     const likedRecipes = JSON.parse(sessionStorage.getItem('likedRecipes') || '{}');
     this.liked = likedRecipes[this.title] || false;
 
+    this.loadRating();
+
 }
+
+loadRating() {
+  const ratings = JSON.parse(sessionStorage.getItem('productRatings') || '{}');
+  this.stars = ratings[this.id] || 0; // Default to 0 if no rating exists
+}
+
+
+
+setRating(value: number) {
+  this.stars = value;
+
+  // Save the rating to sessionStorage
+  const ratings = JSON.parse(sessionStorage.getItem('productRatings') || '{}');
+  ratings[this.id] = value;
+  sessionStorage.setItem('productRatings', JSON.stringify(ratings));
+}
+
+
+
+
+
 toggleBookmark() {
   const recipe = {
     imageSrc: this.image,

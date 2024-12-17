@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './card.component.scss'
 })
 export class CardComponent implements OnInit{
+  @Input() id!: number;
   @Input() imageSrc!: string; // Input for the image URL
   @Input() title!: string;    // Input for the title
   @Input() time!: string;     // Input for the time
