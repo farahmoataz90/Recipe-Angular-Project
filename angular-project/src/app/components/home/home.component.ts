@@ -154,8 +154,6 @@ export class HomeComponent {
 
   userName: string | null = '';
 
-  filteredCards = [...this.cards];
-  searchQuery: string = '';
 
 
   ngOnInit(): void {
@@ -165,12 +163,5 @@ export class HomeComponent {
     }
   }
 
-onSearchInputChange() {
-  this.filteredCards = this.cards.filter((card) =>
-    card.title.toLowerCase().includes(this.searchQuery.toLowerCase())
-  );
-  console.log('Search Query:', this.searchQuery);
-  console.log('Filtered Cards:', this.filteredCards);
-}
 
 }

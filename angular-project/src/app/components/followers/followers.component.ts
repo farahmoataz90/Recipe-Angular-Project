@@ -3,13 +3,15 @@ import { FooterComponent } from '../footer/footer.component';
 import { FollowerscardComponent } from '../followerscard/followerscard.component';
 import { CommonModule } from '@angular/common';
 import { FollowingService } from '../../services/following.service';
+import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
 
 
 
 @Component({
   selector: 'app-followers',
   standalone: true,
-  imports: [FooterComponent,FollowerscardComponent,CommonModule],
+  imports: [FooterComponent,FollowerscardComponent,CommonModule,FormsModule],
   templateUrl: './followers.component.html',
   styleUrl: './followers.component.scss'
 })
@@ -213,6 +215,17 @@ export class FollowersComponent {
     this.followingService.addCard(card);
   }
 
+
+  filteredCards = [...this.cards];
+  searchQuery: string = '';
+
+  onSearchInputChange() {
+    this.filteredCards = this.cards.filter((card) =>
+      card.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+    );
+    console.log('Search Query:', this.searchQuery);
+    console.log('Filtered Cards:', this.filteredCards);
+  }
 
 
 }
