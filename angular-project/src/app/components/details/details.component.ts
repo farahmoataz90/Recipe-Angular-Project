@@ -22,43 +22,54 @@ export class DetailsComponent implements OnInit{
     {
       imageSrc: 'assets/images/farah.jpg',
       name : 'Farah Moataz',
-      date: 'Just now',
+      // date: 'Just now',
+      date: new Date('2024-12-18'),
+
       comments: "This recipe was absolutely amazing! The flavors were perfectly balanced, and it turned out just like the pictures. My family loved it, and I'll definitely be making it again."
     },
     {
       imageSrc: 'assets/images/mazen.jpg',
       name : 'Mazen Mostafa',
-      date: '2 mins ago',
+      // date: '2 mins ago',
+      date: new Date('2024-12-18'),
+
       comments: "Simple, quick, and delicious! The step-by-step instructions were easy to follow, and the end result was a hit at dinner. Highly recommend!"
     },
     {
       imageSrc: 'assets/images/mazenraafat.jpg',
       name : 'Mazen Raafat',
-      date: '5 mins ago',
+      // date: '5 mins ago',
+      date: new Date('2024-12-18'),
+
       comments: "I’m not much of a cook, but this recipe made me feel like a pro. The tips were super helpful, and the meal turned out perfect."
     },
     {
       imageSrc: 'assets/images/mayer.jpg',
       name : 'Mayer Soliman',
-      date: '10 December 2024',
+      date: new Date('2024-12-10'),
       comments: "Delicious and healthy! I loved how adaptable this recipe was—I swapped out some ingredients based on what I had, and it still tasted fantastic"
     },
     {
       imageSrc: 'assets/images/bishoy.jpg',
       name : 'Bishoy Sedra',
-      date: '10 December 2024',
+      // date: '10 December 2024',
+      date: new Date('2024-12-10'),
       comments: "Great recipe overall, but I found it needed a bit more seasoning to suit my taste. Adding a pinch of garlic powder made it perfect for me!"
     },
     {
       imageSrc: 'assets/images/maya.jpg',
       name : 'Maya Mohammed ',
-      date: '30 December 2024',
+      // date: '12 December 2024',
+      date: new Date('2024-12-12'),
       comments: "teslmo ya ekhwaty w happy new year!"
     }
 
 
 
   ];
+
+
+
   showCommentBox = false; // To toggle the textbox visibility
   newCommentText = ''; // To bind the input text
 
@@ -119,7 +130,10 @@ export class DetailsComponent implements OnInit{
     // Load reviews from sessionStorage if available
     const savedReviews = sessionStorage.getItem(`reviews-${this.id}`);
     if (savedReviews) {
-      this.reviews = JSON.parse(savedReviews);
+      this.reviews = JSON.parse(savedReviews).map((review: any) => ({
+        ...review,
+        date: new Date(review.date), // Convert string back to Date
+      }));
     }
 
 }
@@ -134,7 +148,7 @@ addComment(): void {
     const newReview = {
       imageSrc: this.profileImage,
       name: this.userName || 'Anonymous', // Replace with dynamic user name if available
-      date: new Date().toLocaleString(),
+      date: new Date(),
       comments: this.newCommentText,
       stars: this.stars // Use dynamic rating from the stars selector
     };

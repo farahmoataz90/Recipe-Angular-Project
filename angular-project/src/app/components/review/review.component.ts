@@ -11,6 +11,7 @@ import { Component, Input } from '@angular/core';
 export class ReviewComponent {
   @Input() imageSrc!: string;
   @Input() name!: string;
-  @Input() date!: string;
+  // @Input() date!: string;
+  @Input() date!: Date;
   @Input() comments!: string;
 }

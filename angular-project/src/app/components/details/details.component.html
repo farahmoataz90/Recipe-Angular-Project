@@ -85,7 +85,7 @@
               <div class="me-lg-12 mb-6 mb-md-0">
                 <div class="mb-5">
                   <h4 class="mb-3 textcolor fw-bold">
-                    Customer Review
+                    Review
                   </h4>
                   <span class="d-flex align-items-center">
                     <small class="text-warning">
@@ -107,20 +107,14 @@
                       </div>
                     </small>
                     <span class="ms-3">{{ stars }} out of 5</span>
-                    <small class="ms-3">11,130 global ratings</small>
                   </span>
-                </div>
-                <div class="d-grid">
-                  <h4 class="textcolor fw-bold">Review this Recipe</h4>
-                  <p class="mb-0">Share your thoughts with other Users.</p>
-                  <a role="button" tabindex="0" href="/addreview" router-link="/addreview" class="mt-4 text-muted btn btnrev">Write the Review</a>
                 </div>
               </div>
             </div>
             <div class="col-md-8">
               <div class="mb-10">
                 <div class="d-flex justify-content-between align-items-center mb-8"><div>
-                <h4 class="textcolor fw-bold">Reviews</h4>
+                <h4 class="textcolor fw-bold">What People Are Saying</h4>
               </div>
               <div>
                 <select class="form-select">
@@ -136,7 +130,7 @@
               <app-review
               [imageSrc]="review.imageSrc"
               [name]="review.name"
-              [date]="review.date"
+              [date]="review.date ? (review.date | date:'d MMMM y') : 'Invalid Date'"
               [comments]="review.comments">
               </app-review>
             </div>
@@ -150,7 +144,7 @@
             <button class="btn btn-primary" (click)="addComment()">Comment</button>
             </div>
             <div>
-              <button type="button" class="text-muted btn btnrev" (click)="toggleCommentBox()">Add a comment</button>
+              <button type="button" class="text-muted btn btnrev" (click)="toggleCommentBox()">Add Review</button>
             </div>
               </div>
                <br><br><br><br>
